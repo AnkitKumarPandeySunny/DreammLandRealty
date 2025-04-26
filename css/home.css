@@ -1,0 +1,123 @@
+.heroSectionContainerMain {
+    position: relative;
+    height: 95vh;
+}
+
+.heroSectionContainer {
+    position: absolute;
+    top: 100px;
+    left: 55px;
+    right: 55px;
+    padding: 0px 0 96px 0;
+    border-radius: 0px 0px 40px 40px;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width: 90%;
+    height: 70%;
+    overflow: hidden;
+}
+
+
+/* .carousel-inner {
+    height: 100%; /* Ensure carousel-inner takes full height 
+}
+
+.carousel-item {
+    height: 100%; /* Ensure each carousel-item is full height *
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+} */
+
+.heroSectionWrapper {
+    width: 60%;
+    height:60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.heroSectionTitle {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.heroSectionsearchWrapper {
+    color: #fff;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 32px auto 0;
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border-radius: 15px 15px 41px 41px; */
+}
+
+.heroSectionsearchType {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    padding:0px 15px;
+    margin-left: 10px;
+
+}
+
+.heroSectionsearchType p {
+    line-height: 1.8rem;
+}
+
+.heroSectionsearchType p:nth-child(1) {
+    border-bottom: 2px solid #fff;
+
+}
+
+.heroSectionsearch{
+    height: 47px;
+    width: 90%;
+    color: #000;
+    background-color: #fafafa;
+    border-radius: 100px;
+    padding: 0px 20px;
+    margin: auto;
+}
+.heroSectionsearch-select{
+    height: 100%;
+    border: none;
+    width: 30%;
+
+    background: transparent;
+}
+
+
+/* Running line (marquee effect) */
+.running-line {
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(229, 142, 80);   
+    width: 100%;
+    padding: 5px 0%;
+}
+
+.running-line p {
+    margin: auto;
+    font-size: 1.5rem;
+    color: #000;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
