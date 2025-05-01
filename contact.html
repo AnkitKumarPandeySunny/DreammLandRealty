@@ -205,7 +205,8 @@
                   blanditiis tenetur excepturi vitae veniam architecto quisquam
                   commodi cum exercitationem minima.
                 </p> -->
-                <form>
+                <!-- In your form section, add an id to the form and modify the button -->
+                <form id="contactForm">
                   <div class="row g-3">
                     <div class="col-md-6">
                       <div class="form-floating">
@@ -214,6 +215,7 @@
                           class="form-control"
                           id="name"
                           placeholder="Your Name"
+                          required
                         />
                         <label for="name">Your Name</label>
                       </div>
@@ -225,6 +227,7 @@
                           class="form-control"
                           id="email"
                           placeholder="Your Email"
+                          required
                         />
                         <label for="email">Your Email</label>
                       </div>
@@ -232,12 +235,13 @@
                     <div class="col-12">
                       <div class="form-floating">
                         <input
-                          type="text"
+                          type="number"
                           class="form-control"
-                          id="subject"
+                          id="phone"
                           placeholder="Subject"
+                          required
                         />
-                        <label for="subject">Subject</label>
+                        <label for="phone">Phone No</label>
                       </div>
                     </div>
                     <div class="col-12">
@@ -247,13 +251,15 @@
                           placeholder="Leave a message here"
                           id="message"
                           style="height: 150px"
+                          required
                         ></textarea>
                         <label for="message">Message</label>
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100 py-3" type="submit">
-                        Send Message
+                      <button class="btn btn-primary w-100 py-3" type="submit" id="submitBtn" >
+                        <span id="btnText">Send Message</span>
+                        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                       </button>
                     </div>
                   </div>
@@ -420,6 +426,63 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
+    <!-- Guru Prakash Code Start -->
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('function called')
+      const contactForm = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnSpinner = document.getElementById('btnSpinner');
+      
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending...';
+        btnSpinner.classList.remove('d-none');
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          message: document.getElementById('message').value
+        };
+        const apiURL = 'https://backendforankit.onrender.com/sendEmailForDreamland'
+        try {
+          const response = await fetch(apiURL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          const data = await response.json();
+          
+          if (response.ok) {
+            // Success case
+            alert('Message sent successfully! We will get back to you soon.');
+            contactForm.reset();
+          } else {
+            // Error case
+            throw new Error(data.message || 'Failed to send message');
+          }
+        } catch (error) {
+          alert('Error: ' + error.message);
+          console.error('Error:', error);
+        } finally {
+          // Reset button state
+          submitBtn.disabled = false;
+          btnText.textContent = 'Send Message';
+          btnSpinner.classList.add('d-none');
+        }
+      });
+    });
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

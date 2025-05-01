@@ -77,6 +77,24 @@
   font-weight: normal;
   border-radius: 50px;
 }
+/* Contact Form Button Styles */
+#submitBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#btnSpinner {
+  margin-left: 8px;
+  display: none; /* Hidden by default, shown with JavaScript */
+}
+
+/* If you're using Bootstrap's d-none class, you might not need this */
+.d-none {
+  display: none !important;
+}
 
 /*** Navbar ***/
 .nav-bar {

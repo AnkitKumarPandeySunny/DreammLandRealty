@@ -1341,10 +1341,13 @@
       <form id="enquiry-form">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="tel" name="contact" placeholder="Contact Number" required />
-        <input type="text" name="location" placeholder="Location" required />
-        <button type="submit">Submit</button>
+        <input type="text" name="location" placeholder="Your Location" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" id="enquiry-submit-btn">
+          <span id="enquiry-btn-text">Submit</span>
+          <span id="enquiry-btn-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+        </button>
       </form>
-      <p id="success-msg" class="success-msg hidden">✅ Successfully submitted!</p>
     </div>
   </div>
 
