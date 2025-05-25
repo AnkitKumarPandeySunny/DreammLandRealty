@@ -1,13 +1,14 @@
 .heroSectionContainerMain {
     position: relative;
-    height: 95vh;
+    /* height: 95vh; */
+    height: 100%;
 }
 
 .heroSectionContainer {
-    position: absolute;
-    top: 100px;
-    left: 55px;
-    right: 55px;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* left: 55px;
+    right: 55px; */
     padding: 0px 0 96px 0;
     border-radius: 0px 0px 40px 40px;
     -webkit-box-pack: center;
@@ -99,10 +100,10 @@
     overflow: hidden;
     white-space: nowrap;
     border-radius: 10px;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0px;
     background-color: rgb(229, 142, 80);   
-    width: 100%;
+    width: 87%;
     padding: 5px 0%;
 }
 
@@ -120,4 +121,11 @@
     100% {
         transform: translateX(-100%);
     }
+}
+
+
+@media (max-width: 900px) {
+  .running-line {
+    width:95%;
+  }
 }
