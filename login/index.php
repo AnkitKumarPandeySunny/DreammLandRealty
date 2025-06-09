@@ -111,33 +111,6 @@ window.onload = function() {
 </head>
 
 <body>
-
-    <!--    <div class="form-container">
- 
-        <h1>Login</h1>
-
-        <form method="post" action="">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required maxlength="30">
-                <small id="username-error" style="color: red;"></small>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <div class="password-container">
-                    <input type="password" id="password" name="password" required maxlength="255">
-                    <button type="button" id="toggle-password" class="password-toggle"><i
-                            class="fas fa-eye"></i></button>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" name="submit" id="submit" disabled>Login</button>
-            </div>
-        </form>
-
-
-    </div> -->
-
     <!-- Login 4 - Bootstrap Brain Component -->
     <section class="p-3 p-md-4 p-xl-5">
         <div class="container">
@@ -168,11 +141,12 @@ window.onload = function() {
                                     <div class="col-12">
                                         <label for="password" class="form-label">Password <span
                                                 class="text-danger">*</span></label>
-                                        
+
                                         <div class="input-group">
                                             <input type="password" class="form-control" name="password" id="password"
-                                            required maxlength="25">
-                                              <div class="input-group-prepend password-toggle " type="button" id="toggle-password" >
+                                                required maxlength="25">
+                                            <div class="input-group-prepend password-toggle " type="button"
+                                                id="toggle-password">
                                                 <span class="input-group-text" id="inputGroupPrepend2">
                                                     <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
                                                 </span>

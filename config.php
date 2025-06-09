@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/env.php';             // Adjust path as needed
 loadEnv(__DIR__ . '/.env'); 
-
+// IQBOLSHOH
 define("DB_SERVER", getenv('DB_HOST'));
 define("DB_USERNAME", getenv('DB_USER'));
 define("DB_PASSWORD", getenv('DB_PASS'));
