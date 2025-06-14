@@ -51,7 +51,7 @@
                     LandingPage Slider
                 </div>
             </a>
-            <a href="index.php?page=teamMember" class="nav-route-list">
+            <a href="index.php?page=teamMemberAdmin" class="nav-route-list">
                 <div class="nav-list">
                     Team Member
                 </div>

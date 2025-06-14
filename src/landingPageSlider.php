@@ -58,7 +58,7 @@ echo "</table>";
                         <label for="pageType" class="form-label">Page:</label>
                         <select class="form-select form-select-md mb-3" id="pageType" name="pageType"
                             aria-label="Large select example">
-                            <option selected value="home">Home</option>
+                            <option selected  value="home">Home</option>
                             <option value="asansol">Asansol</option>
                             <option value="burnpur">Burnpur</option>
                             <option value="andal">Andal</option>
