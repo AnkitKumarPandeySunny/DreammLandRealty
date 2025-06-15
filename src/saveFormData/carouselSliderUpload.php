@@ -4,7 +4,8 @@ require_once '../db.php';
 
 // Get and sanitize form inputs
 $name     = $conn->real_escape_string($_POST['formAttribute']);
-$category = $conn->real_escape_string($_POST['pageType']);
+// $category = $conn->real_escape_string($_POST['pageType']);
+$category = 'home';
 
 // Set base upload path
 $baseUploadDir = "../../img/uploadedImg/";

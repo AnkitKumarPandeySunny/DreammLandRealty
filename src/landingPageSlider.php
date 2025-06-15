@@ -54,7 +54,7 @@ echo "</table>";
                         <label for="formAttribute" class="form-label">Attribute:</label>
                         <input class="form-control" id="formAttribute" type="text" name="formAttribute" required>
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="pageType" class="form-label">Page:</label>
                         <select class="form-select form-select-md mb-3" id="pageType" name="pageType"
                             aria-label="Large select example">
@@ -68,7 +68,7 @@ echo "</table>";
                             <option value="raniganj">Raniganj</option>
                             <option value="nh2">NH2</option>
                         </select>
-                    </div>
+                    </div> -->
 
 
                     <div class="mb-3">

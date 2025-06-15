@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", function() {
 </head>
 
 <body>
-    <?php require('../src/navbar.php'); ?>
+    <?php require('../src/adminNavbar.php'); ?>
 
     <?php require('../src/sidebar.php'); ?>
     <div class="flex">
