@@ -20,7 +20,7 @@ require_once '../src/db.php';
 
 
 
-// Must be before any HTML
+// Delete Coursel Image
 if (isset($_GET['deleteCarouselImage'])) {
     $id = intval($_GET['deleteCarouselImage']);
     
@@ -63,6 +63,50 @@ window.addEventListener("DOMContentLoaded", function() {
 <?php
     }
 }
+
+// Delete Supporting Partner
+if (isset($_GET['deleteSupportingPartner'])) {
+    $id = intval($_GET['deleteSupportingPartner']);
+    
+    // Optional: check if record exists before delete
+    $check = $conn->query("SELECT * FROM supporting_partners WHERE id = $id");
+    
+    
+    if ($check->num_rows > 0) {
+        $data = $check->fetch_assoc();
+        $relativeImagePath = $data['person_image']; 
+        $fullImagePath = "../img/supportingPartnersImg/" . $relativeImagePath;
+
+        // Delete the file if it exists
+        if (file_exists($fullImagePath)) {
+            unlink($fullImagePath);
+        }
+        else {
+            echo "<pre>File not found: $fullImagePath</pre>";
+        }
+        $conn->query("DELETE FROM supporting_partners WHERE id = $id");
+        ?>
+<script>
+window.addEventListener("DOMContentLoaded", function() {
+    alert("Supporting Partner Deleted successfully!");
+    window.location.href = '/DreammLandRealty/admin/index.php?page=teamMemberAdmin';
+});
+</script>
+<?php
+$conn->close();
+        exit;
+    }
+    else{
+        ?>
+<script>
+window.addEventListener("DOMContentLoaded", function() {
+    alert("Invalid image ID !");
+    window.location.href = '/DreammLandRealty/admin/index.php?page=teamMemberAdmin';
+});
+</script>
+<?php
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +124,9 @@ window.addEventListener("DOMContentLoaded", function() {
 <body>
     <?php require('../src/navbar.php'); ?>
 
+    <?php require('../src/sidebar.php'); ?>
     <div class="flex">
-        <?php require('../src/sidebar.php'); ?>
-        <div style="margin-left: 280px;">
+        <div class="mx-2" style="max-height:85vh;overflow:auto">
             <?php
         if (isset($_GET['page'])) {
             $page = $_GET['page'];

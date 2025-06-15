@@ -22,7 +22,7 @@ $partnersList = $result->fetch_all(MYSQLI_ASSOC);
               <?php foreach ($partnersList as $index => $partner): ?>
               <div class="team-item rounded overflow-hidden">
                   <div class="position-relative" style="height:350px; width:100%;">
-                      <img class="img-fluid" style="object-fit: cover; width: 100%; height: 100%;" src="img/supportingPartnersImg/<?= $partner['person_image'] ?>"
+                      <img class="img-fluid" style="object-fit: cover; width: 100%; height: 100%;" src="./img/supportingPartnersImg/<?= $partner['person_image'] ?>"
                           alt="" />
                       <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                           <a class="btn btn-square mx-1" href="<?= $partner['facebook_url'] ?>"><i

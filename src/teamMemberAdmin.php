@@ -36,7 +36,7 @@ while ($row = $result->fetch_assoc()) {
             <td>" . $row['position'] . "</td>
             <td>" . $row['facebook_url'] . "</td>
             <td>" . $row['insta_url'] . "</td>
-            <td><a href='?deleteCarouselImage=" . $row['id'] . "' onclick=\"return confirm('Are you sure?')\">Delete</a></td>
+            <td><a href='?deleteSupportingPartner=" . $row['id'] . "' onclick=\"return confirm('Are you sure?')\">Delete</a></td>
           </tr>";
 }
 
