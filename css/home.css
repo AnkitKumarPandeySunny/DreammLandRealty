@@ -132,11 +132,11 @@
   color: rgb(10, 1, 1);
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.3s;
+  transition: background-color 0.4s;
 }
 
 .heroSectionsearchType a:hover {
-  background-color: #ddd;
+  background-color: #f8f8f8;
 }
 /* end */
 
