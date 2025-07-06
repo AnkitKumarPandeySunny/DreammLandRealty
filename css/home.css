@@ -123,6 +123,24 @@
     }
 }
 
+/* Ankit */
+.heroSectionsearchType a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 6px;
+  background-color: #ef9047;
+  color: rgb(5, 5, 5);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.heroSectionsearchType a:hover {
+  background-color: #ddd;
+}
+/* end */
+
+
 
 @media (max-width: 900px) {
   .running-line {
