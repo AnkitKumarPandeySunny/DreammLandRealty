@@ -147,3 +147,38 @@
     width:95%;
   }
 }
+/* mobile */
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .container, .row {
+    width: 100% !important;
+    padding: 10px !important;
+    flex-direction: column !important;
+  }
+
+  [class*="col-"] {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  img, iframe {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  nav, .navbar, .menu {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  h1, h2, h3, p, a, button {
+    text-align: center !important;
+    font-size: 90% !important;
+  }
+
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+}
