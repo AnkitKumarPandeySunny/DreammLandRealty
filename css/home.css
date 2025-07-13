@@ -124,20 +124,54 @@
 }
 
 /* Ankit */
+.heroSectionsearchType {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .heroSectionsearchType a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 6px;
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 6px 5px;
   background-color: #ef9047;
   color: rgb(10, 1, 1);
   text-decoration: none;
   border-radius: 6px;
   transition: background-color 0.4s;
+  font-size: 1rem;
 }
 
 .heroSectionsearchType a:hover {
   background-color: #f8f8f8;
 }
+
+/* Responsive Breakpoint for Tablets and Phones */
+@media (max-width: 768px) {
+  .heroSectionsearchType {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroSectionsearchType a {
+    width: 90%;
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSectionsearchType a {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+}
+
 /* end */
 
 
