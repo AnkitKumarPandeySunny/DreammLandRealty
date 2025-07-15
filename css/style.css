@@ -532,3 +532,34 @@
   padding-right: 0;
   border-right: none;
 }
+
+
+.subsidiary-img {
+  flex: 0 1 45%;
+  max-width: 160px;
+}
+
+.subsidiary-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Optional: Responsive text alignment */
+@media (max-width: 768px) {
+  .text-center {
+    text-align: center !important;
+  }
+}
+
+/* Optional: Add spacing between social icons */
+.btn-social {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 0;
+  font-size: 18px;
+  line-height: 40px;
+  border-radius: 50%;
+}
