@@ -111,33 +111,81 @@
     
     
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get the modal element and its title, body parts
-        var contactModal = document.getElementById('contactModal');
-        var modalTitle = contactModal.querySelector('.modal-title');
-        var modalBody = contactModal.querySelector('.modal-body p');
-    
-        // Attach an event listener to all contact buttons
-        var contactButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
-        contactButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                // Get the property data from the button's data attributes
-                var propertyName = button.getAttribute('data-property-name');
-                var propertyPrice = button.getAttribute('data-property-price');
-                var propertyLocation = button.getAttribute('data-property-location');
-    
-                // Update the modal content with the dynamic data
-                modalTitle.textContent = `Contact About: ${propertyName}`;
-                modalBody.innerHTML = `
-                    <p><strong>Property Name:</strong> ${propertyName}</p>
-                    <p><strong>Price:</strong> ${propertyPrice}</p>
-                    <p><strong>Location:</strong> ${propertyLocation}</p>
-                    <p> <b><input type="checkbox"/> I agree to be contacted by Housing and agents via WhatsApp, SMS, phone, email etc.</b></p>
-                    <p><input type="checkbox"/> I am interested in Home Loans</p>
-                `;
-            });
-        });
+document.addEventListener("DOMContentLoaded", function () {
+  var contactModal = document.getElementById("contactModal");
+  var modalTitle = contactModal.querySelector(".modal-title");
+  var modalBody = contactModal.querySelector(".modal-body");
+  var modalFooter = contactModal.querySelector(".modal-footer");
+
+  var contactButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
+  contactButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const propertyName = button.getAttribute("data-property-name");
+      const propertyPrice = button.getAttribute("data-property-price");
+      const propertyLocation = button.getAttribute("data-property-location");
+
+      modalTitle.textContent = `Contact About: ${propertyName}`;
+      modalBody.innerHTML = `
+        <p><strong>Property Name:</strong> ${propertyName}</p>
+        <p><strong>Price:</strong> ${propertyPrice}</p>
+        <p><strong>Location:</strong> ${propertyLocation}</p>
+        <p>
+          <b><input type="checkbox" id="contactAgreement" /> I agree to be contacted by Housing and agents via WhatsApp, SMS, phone, email etc.</b>
+        </p>
+        <p><input type="checkbox" id="interestedLoan" /> I am interested in Home Loans</p>
+        <input type="email" id="userEmail" placeholder="Email" style="width:100%;" />
+      `;
+
+      modalFooter.innerHTML = `
+        <button type="button" class="btn btn-primary w-100" id="getContactDetailButton">
+          Get Contact Details
+        </button>
+      `;
+
+
+      document.getElementById('getContactDetailButton').addEventListener('click', async () => {
+        const email = document.getElementById('userEmail').value;
+        const contactAgreement = document.getElementById('contactAgreement').checked;
+        const interestedLoan = document.getElementById('interestedLoan').checked;
+
+        if (!email) {
+          alert("Please enter your email.");
+          return;
+        }
+
+        const formData = {
+          propertyName,
+          propertyPrice,
+          propertyLocation,
+          email,
+          contactAgreement,
+          interestedLoan
+        };
+
+        const apiURL = 'https://backendforankit.onrender.com/sendEmailForDreamland';
+
+        try {
+          const response = await fetch(apiURL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+            alert("Details submitted successfully!");
+          } else {
+            alert("Something went wrong. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Network error. Please try again later.");
+        }
+      });
     });
+  });
+});
     
 })(jQuery);
 
