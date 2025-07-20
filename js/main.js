@@ -112,23 +112,24 @@
     
 
 document.addEventListener("DOMContentLoaded", function () {
-  var contactModal = document.getElementById("contactModal");
-  var modalTitle = contactModal.querySelector(".modal-title");
-  var modalBody = contactModal.querySelector(".modal-body");
-  var modalFooter = contactModal.querySelector(".modal-footer");
+  let contactModal = document.getElementById("contactModal");
+  let modalTitle = contactModal.querySelector(".modal-title");
+  let modalBody = contactModal.querySelector(".modal-body");
+  let modalFooter = contactModal.querySelector(".modal-footer");
 
-  var contactButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
+  let contactButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
   contactButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       const propertyName = button.getAttribute("data-property-name");
       const propertyPrice = button.getAttribute("data-property-price");
       const propertyLocation = button.getAttribute("data-property-location");
 
+              // <p><strong>Property Name:</strong> ${propertyName}</p>
+        // <p><strong>Price:</strong> ${propertyPrice}</p>
+        // <p><strong>Location:</strong> ${propertyLocation}</p>
       modalTitle.textContent = `Contact About: ${propertyName}`;
       modalBody.innerHTML = `
-        <p><strong>Property Name:</strong> ${propertyName}</p>
-        <p><strong>Price:</strong> ${propertyPrice}</p>
-        <p><strong>Location:</strong> ${propertyLocation}</p>
+
         <p>
           <b><input type="checkbox" id="contactAgreement" /> I agree to be contacted by Housing and agents via WhatsApp, SMS, phone, email etc.</b>
         </p>
