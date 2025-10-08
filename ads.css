@@ -1,62 +1,54 @@
-/* --- Common Popup Style --- */
 .side-ad {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
   z-index: 9999;
   display: none;
-  background: none !important; /* No background */
+  background: none !important;
 }
 
-/* Right and Left positioning */
+/* Right / Left positions */
 .side-ad.right { right: 20px; }
 .side-ad.left { left: 20px; }
 
-/* Ad container — transparent */
+/* Container — fully transparent */
 .ad-container {
   text-align: center;
   background: transparent !important;
-  box-shadow: none !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Ad image — full visible, no crop */
+/* Image — show full, no crop */
 .ad-img {
   width: 320px;
-  height: auto; /* height adjusts automatically */
+  height: auto;
   max-height: 90vh;
   border-radius: 16px;
-  object-fit: contain; /* show full image */
+  object-fit: contain;
   background: transparent !important;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   animation: fadeInZoom 0.6s ease-in-out;
   transition: transform 0.3s ease;
 }
 
-/* Zoom effect */
-.ad-img:hover {
-  transform: scale(1.05);
-}
+.ad-img:hover { transform: scale(1.05); }
 
-/* Close button */
+/* Close button below image */
 .close-btn {
   margin-top: 8px;
   background: #000;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 6px 18px;
   cursor: pointer;
   font-size: 14px;
   transition: background 0.2s ease;
-  box-shadow: none; /* no shadow or bg behind it */
 }
 
-.close-btn:hover {
-  background: #333;
-}
+.close-btn:hover { background: #333; }
 
 /* Animation */
 @keyframes fadeInZoom {

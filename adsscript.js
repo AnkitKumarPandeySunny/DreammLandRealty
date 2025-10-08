@@ -1,28 +1,44 @@
 let adTimer;
+let repeatTimer;
 
-// Show 1st ad after 1 second
+// 🔹 Start first ad on page load
 window.addEventListener("load", () => {
-  setTimeout(showFirstAd, 1000);
+  setTimeout(showFirstAd, 1000); // show ad1 after 1s
+  startRepeatCycle(); // schedule repeat every 45s
 });
 
 function showFirstAd() {
-  const ad1 = document.getElementById("ad1");
-  ad1.style.display = "block";
+  clearTimeout(adTimer);
+  document.getElementById("ad1").style.display = "block";
 
-  // Auto-close after 10 seconds
+  // if user doesn't close, show 2nd ad automatically after 5s
   adTimer = setTimeout(() => {
-    closeAd(1);
     showSecondAd();
-  }, 10000);
+  }, 5000);
 }
 
 function showSecondAd() {
-  const ad2 = document.getElementById("ad2");
-  ad2.style.display = "block";
+  clearTimeout(adTimer);
+  document.getElementById("ad1").style.display = "none";
+  document.getElementById("ad2").style.display = "block";
 }
 
 function closeAd(num) {
-  clearTimeout(adTimer);
   const ad = document.getElementById("ad" + num);
   if (ad) ad.style.display = "none";
+  clearTimeout(adTimer);
+
+  // if Ad1 closed manually → show Ad2 after 3s
+  if (num === 1) {
+    adTimer = setTimeout(showSecondAd, 3000);
+  }
+}
+
+// 🔁 Repeat cycle every 45 seconds
+function startRepeatCycle() {
+  repeatTimer = setInterval(() => {
+    document.getElementById("ad1").style.display = "none";
+    document.getElementById("ad2").style.display = "none";
+    showFirstAd();
+  }, 45000);
 }
